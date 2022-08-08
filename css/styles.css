@@ -1,3 +1,9 @@
+* {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 html, body {
     height: 100%;
     width: 100%;
@@ -43,9 +49,9 @@ html, body {
     border-radius: 6px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
     background: red;
-    list-style: none;
     cursor: pointer;
     overflow: hidden;
+    transition: 0.5s;
 }
 
 .mapsOptions li:hover, .user:hover {
@@ -63,13 +69,49 @@ html, body {
 }
 
 .user{
+    display: flex;
+    justify-content: end;
     background: #fff;
+    
 }
 
 .user img {
-    width: 100%;
-    height: 100%;
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
 }
+
+
+.user.active{
+    width: 290px;
+    height: 180px;
+    transition: 0.5s;
+}
+
+.info {
+    display: none;
+    flex-wrap: wrap;
+    align-self: center;
+    flex-direction: column;
+    margin: 10px;
+    font-size: 16px;
+}
+
+.info span{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.user.active .info{
+    display: flex;
+}
+
+.info li {
+    margin-top: 10px;
+}
+
+
 
 
 

@@ -4,16 +4,22 @@ import InfoUser from './modules/InfoUser.js';
 const miniMaps = document.querySelectorAll('.mapsOptions li');
 const user = document.querySelector('.user');
 
-function start () {
-    const map = new MapConstruction();
-    miniMaps.forEach((m)=>{
-        m.addEventListener('click', async (event)=> await map.start(event.target.innerText));
-    })
-    miniMaps[0].click();
+async function start () {
+    try {
+        const map = new MapConstruction();
+        await map.configMap()
+        miniMaps.forEach((m)=>{
+            m.addEventListener('click', async (event)=> await map.configMap(event.target.innerText));
+        })
 
-    const infoCurrentUser = new InfoUser();
-    infoCurrentUser.getInfoUser();
-    user.addEventListener('click', async ()=> {infoCurrentUser.showInfo()});
+        const infoCurrentUser = new InfoUser();
+        const result = await infoCurrentUser.getInfoUser();
+        if (result) infoCurrentUser.insertInfo();
+        user.addEventListener('click', async ()=> {infoCurrentUser.showInfo()});
+    } catch (error) {
+        console.log('atualize a página');
+    }
+    
 }
 
 start();

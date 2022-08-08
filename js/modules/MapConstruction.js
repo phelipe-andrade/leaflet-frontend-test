@@ -5,24 +5,31 @@ export default class MapConstruction{
         this.coordinates = { lat: 0, lng: 0, zoom: 0 }
         this.infoMap = undefined;
         this.map = undefined;
+        this.points = undefined;
     }
   
     async configMap(nameMap){
         const result = await EndPoints.getInfo('initial'); 
-        const maps =  result.tile_layers
-        for (const map of maps) {
-            if(map.name.includes(nameMap)) this.infoMap = map;
-        }
-
+        const maps =  result.tile_layers;
         const view = result.initial_view;
+        let updatePoints = true;
+        
         this.coordinates = {
             lat: view.center.lat,
             lng: view.center.lng,
             zoom: view.zoom,
         } 
 
+        if (!nameMap) this.infoMap = maps[0]; 
+        else {
+            for (const map of maps) {
+                if(map.name.includes(nameMap)) this.infoMap = map;
+            }
+            updatePoints = false
+        }
+        
         await this.mapRender();
-        await this.insertPoints();
+        await this.insertPoints(updatePoints);
     }
 
     async mapRender() {
@@ -38,9 +45,10 @@ export default class MapConstruction{
         }).addTo(this.map);
     }
 
-    async insertPoints() {
-        const points = await EndPoints.getInfo('points');
-        for (const point of points){
+    async insertPoints(updatePoints) {
+        if (updatePoints) this.points = await EndPoints.getInfo('points');
+
+        for (const point of this.points){
             const cord = point.geometry.coordinates;
             const prop = point.properties
             const featureIcon = L.icon({
@@ -53,11 +61,5 @@ export default class MapConstruction{
             L.marker([cord[1], cord[0]], {icon: featureIcon}).addTo(this.map)
             .bindPopup(`<p>${point.geometry.type}</p><br>${prop.popupContent}`)
         }
-    }
-
-    async start(nameMap) {
-        await this.configMap(nameMap);
-        await this.mapRender();
-        await this.insertPoints();
     }
 }

@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body>
@@ -24,7 +25,23 @@
 		</ul>
 	</div>
 	<div id='map'></div>
+	<div class="pointData">
+		<img  class="close" src="./img/close-cross.png" alt="close">
+		<div class="graphic">
+			<canvas id="myChart" style="width:100%;height: 100%;"></canvas>
+			<ul class="subtitle">
+				<li style="--clr:#F03D2A;">Temperatura <span></span></li>
+				<li style="--clr:#13678A;">Umidade <span></span></li>
+				<li style="--clr:#F8731E;">Precipitação <span></span></li>
+				<li style="--clr:#27D94D;">Visibilidade <span></span></li>
+				<li style="--clr:#29C9FF;">Vento <span></span></li>
+			</ul>
+		</div>
+		
+	</div>
 </section>
+
+
 
 <script type="module" src="./js/script.js"></script>
 </body>

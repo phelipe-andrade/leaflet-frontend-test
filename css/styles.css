@@ -111,6 +111,90 @@ html, body {
     margin-top: 10px;
 }
 
+.pointData{
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    z-index: 999 ;
+    background: #fff;
+    display: none;
+    justify-content: center;
+}
+
+.pointData.active{
+    display: flex;
+    animation: showPointData 0.5s forwards;
+}
+
+@keyframes showPointData {
+    from{
+        opacity: 0.5;
+        top: 65%;
+    }
+    to {
+        opacity: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    display: inline-block;
+    padding: 5px;
+    width: 20px;
+    border-radius: 6px;
+    color: #fff;
+    background: red;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.close:hover{
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    
+    transition: 0.3s;
+}
+
+.graphic {
+    margin-top: 20px;
+    width: 90%;
+    height: 80%;
+    border: solid 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.subtitle{
+    margin-top: 25px;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.subtitle li{
+    display: flex;
+    align-items: center;
+}
+
+.subtitle li::before{
+    content: '';
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    width: 15px;
+    height: 7px;
+    background-color: var(--clr);
+}
+
 
 
 

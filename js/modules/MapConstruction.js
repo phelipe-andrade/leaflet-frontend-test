@@ -59,7 +59,7 @@ export default class MapConstruction{
             });
             
             L.marker([cord[1], cord[0]], {icon: featureIcon}).addTo(this.map)
-            .bindPopup(`<p>${point.geometry.type}</p><br>${prop.popupContent}`)
+            .bindPopup(`<p>${point.properties.name}</p><br>${prop.popupContent}<button class="btn-data" id="${prop.id}">Medições hitóricas</button>`)
         }
     }
 }

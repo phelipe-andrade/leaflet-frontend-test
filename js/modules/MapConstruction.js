@@ -8,7 +8,8 @@ export default class MapConstruction{
         this.points = undefined;
     }
   
-    async configMap(nameMap){
+    async configMap(map){
+        const nameMap = map.querySelector('span').innerText
         const result = await EndPoints.getInfo('initial'); 
         const maps =  result.tile_layers;
         const view = result.initial_view;

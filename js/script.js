@@ -11,7 +11,7 @@ const user = document.querySelector('.user');
         const map = new MapConstruction();
         await map.configMap()
         miniMaps.forEach((m)=>{
-            m.addEventListener('click', async (event)=> await map.configMap(event.target.innerText));
+            m.addEventListener('click', async (event)=> await map.configMap(event.target.parentNode));
         })
 
         const infoCurrentUser = new InfoUser();

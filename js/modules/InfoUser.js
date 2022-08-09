@@ -1,4 +1,4 @@
-import EndPoints from "./endPoints.js";
+import EndPoints from "./EndPoints.js";
 
 const divUser = document.querySelector('.user');
 

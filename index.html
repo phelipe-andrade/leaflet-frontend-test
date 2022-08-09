@@ -20,8 +20,14 @@
 			<ul class="info"></ul>
 		</div>
 		<ul class='mapsOptions'>
-			<li>OpenStreetMap</li>
-			<li>Satélite</li>
+			<li>
+				<img src="./img/map.jpg" alt="imagem map">
+				OpenStreetMap
+			</li>
+			<li>
+				<img src="./img/satelite.jpg" alt="imagem satelite">
+				Satélite
+			</li>
 		</ul>
 	</div>
 	<div id='map'></div>
@@ -29,15 +35,14 @@
 		<img  class="close" src="./img/close-cross.png" alt="close">
 		<div class="graphic">
 			<canvas id="myChart" style="width:100%;height: 100%;"></canvas>
-			<ul class="subtitle">
-				<li style="--clr:#F03D2A;">Temperatura <span></span></li>
-				<li style="--clr:#13678A;">Umidade <span></span></li>
-				<li style="--clr:#F8731E;">Precipitação <span></span></li>
-				<li style="--clr:#27D94D;">Visibilidade <span></span></li>
-				<li style="--clr:#29C9FF;">Vento <span></span></li>
-			</ul>
 		</div>
-		
+		<form>
+			<label for="start">Início:</label>
+			<input type="date" name="start" id="startdata">
+			<label for="end">Final:</label>
+			<input type="date" id="enddata">
+			<label class="contem">Não contém registro nesta data selecionada</label>
+		</form>
 	</div>
 </section>
 

@@ -41,6 +41,8 @@ html, body {
     flex-direction: column;
 }
 
+
+
 .mapsOptions li, .user{
     margin-top: 10px;
     width: 45px;
@@ -123,6 +125,8 @@ html, body {
     background: #fff;
     display: none;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .pointData.active{
@@ -160,7 +164,6 @@ html, body {
 
 .close:hover{
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    
     transition: 0.3s;
 }
 
@@ -173,27 +176,47 @@ html, body {
     padding: 10px;
 }
 
-.subtitle{
-    margin-top: 25px;
+form{
     display: flex;
-    width: 90%;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
+    margin-top: 15px;
 }
 
-.subtitle li{
+
+.leaflet-popup-content{
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
-.subtitle li::before{
-    content: '';
-    display: inline-block;
-    position: relative;
-    margin-right: 10px;
-    width: 15px;
-    height: 7px;
-    background-color: var(--clr);
+.leaflet-popup-content .btn-data {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
+
+.leaflet-popup-content .btn-data:hover {
+    color: #fff;
+    background-color: #000;
+} 
+
+.contem {
+    display: none;
+    color: red;
+}
+
+.contem.active {
+    display: block;
+}
+
+
 
 
 

@@ -20,6 +20,8 @@ export default class MapConstruction{
             zoom: view.zoom,
         } 
 
+        // Muda o mapa de acordo com o selecionado
+        // Por padrão já o primeiro é utilizado
         if (!nameMap) this.infoMap = maps[0]; 
         else {
             for (const map of maps) {
@@ -32,6 +34,7 @@ export default class MapConstruction{
         await this.insertPoints(updatePoints);
     }
 
+    //
     async mapRender() {
         if (this.map === undefined) this.map = L.map('map').setView([this.coordinates.lat, this.coordinates.lng], this.coordinates.zoom);
         else {
@@ -58,6 +61,8 @@ export default class MapConstruction{
                 popupAnchor: [0, -28]
             });
             
+            // Alteração na posição das cordenadas, pois o modo como vinha da API,
+            // a localização estava indo para o meio do oceano.
             L.marker([cord[1], cord[0]], {icon: featureIcon}).addTo(this.map)
             .bindPopup(`<p>${point.properties.name}</p><br>${prop.popupContent}<button class="btn-data" id="${prop.id}">Medições hitóricas</button>`)
         }

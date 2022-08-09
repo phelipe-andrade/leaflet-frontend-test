@@ -7,8 +7,15 @@ class EndPoints{
       initial: '/api/teste-leaflet/visao-inicial',
       points: '/api/teste-leaflet/pontos',
       user: '/api/teste-leaflet/user',
+
     }
     const response = await fetch(`${baseURL}${endPoints[current]}`);
+    const json = await response.json();
+    return json;
+  }
+
+  static async getPointData(id){
+    const response = await fetch(`${baseURL}/api/teste-leaflet/ponto/${id}`);
     const json = await response.json();
     return json;
   }

@@ -9,7 +9,8 @@ export default class MapConstruction{
     }
   
     async configMap(map){
-        const nameMap = map.querySelector('span').innerText
+        let nameMap = undefined;
+        if (map) nameMap = map.querySelector('span').innerText;
         const result = await EndPoints.getInfo('initial'); 
         const maps =  result.tile_layers;
         const view = result.initial_view;
